@@ -22,7 +22,7 @@ PROFILE = {
 
 HERO = {
     "headline": ["Designing the web,", "simply beautiful."],
-    "intro": "Hi, I'm Norlina, a website and UI designer who also writes the code.",
+    "intro": "Hello! I'm a Computer Science Student passionate about Web Development and UI/UX Design. I love designing creative interfaces and building functional websites while continuously learning new technologies and improving my skills.",
     "card_left": {
         "title": "User-friendly by default",
         "text": "Clean, visually appealing websites that are easy to use.",
@@ -37,18 +37,17 @@ HERO = {
 ABOUT = {
     "heading": "Hi, I'm Norlina.",
     "paragraphs": [
-        "I am a designer, proficient in Figma and Photoshop, and also skilled in video editing. "
-        "In addition to my design skills, I am a passionate developer with a strong commitment to continuous learning.",
-        "I strive to create user-friendly and visually appealing websites. My goal is to collaborate with "
-        "clients to bring their visions to life and deliver exceptional digital solutions.",
+        "Hi, I'm Norlina! I am a Computer Science student who is still learning about web development and UI design.", 
+        "I have basic knowledge of HTML, CSS, and Figma.",
+        "I enjoy exploring new technologies, learning new skills, and improving myself as a future developer.",
     ],
-    "chips": ["Website designer", "UI designer", "Developer"],
+    "chips": ["Website designer"],
     # (label, value); a value starting with "mailto:" or "http" becomes a link in the template
     "facts": [
         ("Studying at", "Palawan State University"),
         ("Focus", "Website and UI design"),
-        ("Design tools", "Figma, Photoshop, video editing"),
-        ("Build with", "Django, JavaScript, HTML, CSS"),
+        ("Design tools", "Figma,"),
+        ("Build with", "HTML, CSS"),
     ],
 }
 
@@ -57,7 +56,7 @@ HOBBIES = {
     "text": "When I'm not designing , you'll find me watching, playing jackstones or reading.",
     "items": [
         {"id": "watching", "label": "Watching", "image": "site/img/hobby-watching.jpg"},
-        {"id": "jackstones", "label": "Jackstones", "image": "site/img/hobby-Jackstones.jpg"},
+        {"id": "jackstones", "label": "Jackstones", "image": "site/img/hobby-jackstones.jpg"},
         {"id": "reading", "label": "Reading", "image": "site/img/hobby-reading.jpg"},
     ],
 }
@@ -83,14 +82,6 @@ TOOLKIT = {
 
 PROJECTS = [
     {
-        "name": "FITPLAN",
-        "description": "This is my recent work for my database class project about HRM or Human Resources Management.",
-        "role": "Database class project",
-        "tech": ["Database design", "HRM"],
-        "image": "site/img/fitplan.webp",
-        "live_url": "", "repo_url": "",
-    },
-    {
         "name": "PALCONNECT",
         "description": "I created this design using the Figma application and it's one of my favorite web designs for a landing page.",
         "role": "UI designer",
@@ -106,6 +97,15 @@ PROJECTS = [
         "image": "site/img/psu-food.webp",
         "live_url": "", "repo_url": "",
     },
+    {
+        "name": "HEALTH TRACKER APP",
+        "description": "An offline mobile application designed to help users monitor their physical and medical health information.",
+        "role": "UI Designer",
+        "tech": ["Android Studio", "Java", "SQLite"],
+        "image": "site/img/health-tracker.png",
+        "live_url": "",
+        "repo_url": "",
+    }
 ]
 
 CONTACT = {
