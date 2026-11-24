@@ -4,9 +4,9 @@ Everything written on the portfolio lives here. Edit the text, no HTML needed.
 Projects can ALSO be managed from the Django admin (/admin/ -> Projects).
 If the database has any projects, they replace the PROJECTS list below.
 
-Images live in pages/static/site/img/. To use your own hobby photos, save them with
-the same names (hobby-boxing.png, hobby-badminton.png, hobby-gym.png). Transparent
-PNG cut-outs look best because the three photos overlap each other.
+Images live in pages/static/site/img/. The hobby photos use hobbywatching.jpg,
+hobbyjackstones.jpg, and hobbyreading.jpg. Transparent cut-outs look best because
+the three photos overlap each other.
 """
 
 PROFILE = {
@@ -29,7 +29,7 @@ HERO = {
     },
     "card_right": {
         "title": "Design and code",
-        "text": "Figma and Photoshop for the look, Django and JavaScript for the build.",
+        "text": "Figma for the look, Django and HTML/CSS for the build.",
     },
     "badge": "design \u00b7 develop \u00b7 deliver \u00b7 ",
 }
@@ -55,18 +55,16 @@ HOBBIES = {
     "heading": "Away from the screen",
     "text": "When I'm not designing , you'll find me watching, playing jackstones or reading.",
     "items": [
-        {"id": "watching", "label": "Watching", "image": "site/img/hobby-watching.jpg"},
-        {"id": "jackstones", "label": "Jackstones", "image": "site/img/hobby-jackstones.jpg"},
-        {"id": "reading", "label": "Reading", "image": "site/img/hobby-reading.jpg"},
+        {"id": "watching", "label": "Watching", "image": "site/img/hobbywatching.jpg"},
+        {"id": "jackstones", "label": "Jackstones", "image": "site/img/hobbyjackstones.jpg"},
+        {"id": "reading", "label": "Reading", "image": "site/img/hobbyreading.jpg"},
     ],
 }
 
 # Glossy 3D tiles (hero + toolkit). `glyph` picks the drawing in the template.
 TOOLS = [
     {"id": "figma", "label": "Figma", "group": "Design", "glyph": "figma"},
-    {"id": "photoshop", "label": "Photoshop", "group": "Design", "glyph": "ps"},
     {"id": "django", "label": "Django", "group": "Build", "glyph": "dj"},
-    {"id": "js", "label": "JavaScript", "group": "Build", "glyph": "js"},
     {"id": "web", "label": "HTML and CSS", "group": "Build", "glyph": "code"},
     {"id": "video", "label": "Video editing", "group": "Creative", "glyph": "play"},
 ]
@@ -74,37 +72,20 @@ TOOLS = [
 TOOLKIT = {
     "heading": "Tools I work with",
     "groups": [
-        {"name": "Design", "items": ["Figma", "Photoshop", "UI design"]},
-        {"name": "Build", "items": ["Django", "JavaScript", "HTML", "CSS"]},
+        {"name": "Design", "items": ["Figma", "UI design"]},
+        {"name": "Build", "items": ["Django", "HTML", "CSS"]},
         {"name": "Creative", "items": ["Video editing"]},
     ],
 }
 
 PROJECTS = [
     {
-        "name": "PALCONNECT",
-        "description": "I created this design using the Figma application and it's one of my favorite web designs for a landing page.",
-        "role": "UI designer",
-        "tech": ["Figma", "Landing page"],
-        "image": "site/img/palconnect.webp",
-        "live_url": "", "repo_url": "",
-    },
-    {
-        "name": "PSU FOOD RESERVATION APP",
-        "description": "An application to reserve food only at Palawan State University. I designed this for my Proposal project.",
+        "name": "HEALTH TRACKER",
+        "description": "A health tracking application designed to help users monitor their wellness and daily health activities.",
         "role": "UI designer",
         "tech": ["Figma", "App design"],
-        "image": "site/img/psu-food.webp",
+        "image": "site/img/Health Tracker.png",
         "live_url": "", "repo_url": "",
-    },
-    {
-        "name": "HEALTH TRACKER APP",
-        "description": "An offline mobile application designed to help users monitor their physical and medical health information.",
-        "role": "UI Designer",
-        "tech": ["Android Studio", "Java", "SQLite"],
-        "image": "site/img/health-tracker.png",
-        "live_url": "",
-        "repo_url": "",
     }
 ]
 

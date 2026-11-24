@@ -26,9 +26,9 @@ All images live in `pages/static/site/img/`. Replace a file and keep the same na
 | --------------------- | ----------------------------------------------------- |
 | `hero.webp`           | Big first-page portrait (transparent cut-out)         |
 | `fullbody.webp`       | Full-body photo in About (transparent cut-out)        |
-| `hobby-boxing.png`    | Hobby collage (placeholder now, transparent PNG best) |
-| `hobby-badminton.png` | Hobby collage (placeholder now)                       |
-| `hobby-gym.png`       | Hobby collage (placeholder now)                       |
+| `hobbywatching.jpg`   | Watching hobby photo                                  |
+| `hobbyjackstones.jpg` | Jackstones hobby photo                                |
+| `hobbyreading.jpg`    | Reading hobby photo                                   |
 
 If you use a different file name or type, update the paths in `pages/portfolio_data.py`
 (`HOBBIES`) or the `<img>` tags in `templates/home.html`.

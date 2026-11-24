@@ -105,27 +105,6 @@
         </div>
       </div>
       <div
-        class="tile t-ps"
-        style="
-          --x: 79%;
-          --y: 27%;
-          --s: clamp(54px, 7vw, 112px);
-          --b: 1.5;
-          --pb: 8;
-          --dx: 30vw;
-          --dy: -10vh;
-          --ds: 1.1;
-          --k: -18;
-          --z: 4;
-        "
-      >
-        <div class="tile-in">
-          <div class="tile-body tone-photoshop">
-            {% include "partials/glyph.html" with glyph="ps" %}
-          </div>
-        </div>
-      </div>
-      <div
         class="tile t-dj"
         style="
           --x: 22%;
@@ -143,27 +122,6 @@
         <div class="tile-in">
           <div class="tile-body tone-django">
             {% include "partials/glyph.html" with glyph="dj" %}
-          </div>
-        </div>
-      </div>
-      <div
-        class="tile t-js"
-        style="
-          --x: 68%;
-          --y: 70%;
-          --s: clamp(70px, 9vw, 150px);
-          --b: 6;
-          --pb: 7;
-          --dx: 32vw;
-          --dy: 12vh;
-          --ds: 1;
-          --k: 34;
-          --z: 1;
-        "
-      >
-        <div class="tile-in">
-          <div class="tile-body tone-js">
-            {% include "partials/glyph.html" with glyph="js" %}
           </div>
         </div>
       </div>
@@ -187,7 +145,7 @@
 
       <div class="portrait" id="portrait">
         <img
-          src="{% vstatic 'site/img/pic1.jpg' %}"
+          src="{% vstatic 'site/img/pic.jpg' %}"
           width="700"
           height="800"
           alt="Portrait of {{ profile.full_name }}"

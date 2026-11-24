@@ -65,9 +65,7 @@ a { color: inherit; }
 .tile-body::before { content: ""; position: absolute; inset: 0; border-radius: inherit; background: radial-gradient(120% 80% at 22% 8%, rgba(255,255,255,.55), transparent 55%); pointer-events: none; }
 .glyph { position: relative; width: 52%; height: 52%; }
 .tone-figma { --c1: #2c2c38; --c2: #0f0f16; --edge: #050508; }
-.tone-photoshop { --c1: #11407a; --c2: #061a33; --edge: #030c18; }
 .tone-django { --c1: #1c7d56; --c2: #0a3b29; --edge: #05231a; }
-.tone-js { --c1: #ffec6a; --c2: #f4c700; --edge: #b38f00; }
 .tone-web { --c1: #7276ff; --c2: #3c3fd1; --edge: #24278f; }
 .tone-video { --c1: #ff9a7b; --c2: #e0486c; --edge: #992244; }
 .orb { border-radius: 50%; --edge: transparent; background: radial-gradient(circle at 32% 28%, #fff 0, #cfd0ff 22%, #7b7ef6 58%, #3b36b8 100%); box-shadow: inset -8px -10px 20px rgba(30,20,120,.4), 0 30px 40px -16px rgba(60,50,190,.55); }
@@ -189,9 +187,9 @@ a { color: inherit; }
   filter: blur(2.5px) drop-shadow(0 24px 22px rgba(30,30,70,.25)); opacity: .8;
   transition: transform .7s var(--ease), filter .6s var(--ease), opacity .6s var(--ease);
 }
-.hobby-boxing { --w: 52%; --l: 2%; z-index: 3; }
-.hobby-badminton { --w: 40%; --l: 34%; --b: 16%; z-index: 1; }
-.hobby-gym { --w: 48%; --l: 52%; z-index: 2; }
+.hobby-watching { --w: 52%; --l: 2%; z-index: 3; }
+.hobby-jackstones { --w: 40%; --l: 34%; --b: 16%; z-index: 1; }
+.hobby-reading { --w: 48%; --l: 52%; z-index: 2; }
 .hobby.active { filter: blur(0) drop-shadow(0 30px 26px rgba(30,30,70,.32)); opacity: 1; z-index: 6; transform: translateY(-2%) scale(1.04); }
 .hobby-label { position: absolute; z-index: 7; left: 50%; bottom: -.6rem; transform: translateX(-50%); padding: .5rem 1.2rem; border-radius: 999px; font-weight: 500; }
 
@@ -290,7 +288,6 @@ a { color: inherit; }
   .hero-intro { right: 0; max-width: none; bottom: 0; padding: 4rem 0 1.3rem; background: linear-gradient(transparent, var(--paper) 62%); left: 0; padding-left: 1.2rem; padding-right: 1.2rem; }
   .badge { display: none; }
   .scroll-cue { display: none; }
-  .tile.t-js, .tile.t-figma { --s: clamp(70px, 20vw, 120px); }
 }
 @media (max-width: 620px) {
   .work-grid { grid-template-columns: minmax(0, 1fr); }

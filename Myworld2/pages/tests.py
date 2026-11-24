@@ -32,10 +32,15 @@ class HomePageTests(TestCase):
         for item in HOBBIES["items"]:
             self.assertContains(response, item["label"])
 
+    def test_removed_tools_not_rendered(self):
+        response = self.client.get(reverse("home"))
+        self.assertNotContains(response, "Photoshop")
+        self.assertNotContains(response, "JavaScript")
+
     def test_seeded_projects_use_new_image_folder(self):
-        self.assertEqual(Project.objects.count(), 3)
+        self.assertEqual(Project.objects.count(), 1)
         self.assertFalse(Project.objects.filter(image__startswith="game/").exists())
-        self.assertContains(self.client.get(reverse("home")), "site/img/fitplan.webp")
+        self.assertContains(self.client.get(reverse("home")), "HEALTH TRACKER")
 
     def test_projects_come_from_database(self):
         Project.objects.all().delete()
@@ -46,7 +51,7 @@ class HomePageTests(TestCase):
 
     def test_projects_fall_back_to_data_file(self):
         Project.objects.all().delete()
-        self.assertContains(self.client.get(reverse("home")), "PALCONNECT")
+        self.assertContains(self.client.get(reverse("home")), "HEALTH TRACKER")
 
 
 class ContactTests(TestCase):
