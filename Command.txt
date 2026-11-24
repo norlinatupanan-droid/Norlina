@@ -1,0 +1,7 @@
+"Commands for Github" 
+
+Norlina\myself
+git init
+git add .
+git commit -m "explanation"
+git push
