@@ -1,0 +1,514 @@
+{% extends 'base.html' %} {% load static assets %} {% block extra_head %}
+<link
+  rel="preload"
+  as="image"
+  href="{% vstatic 'site/img/pic.jpg' %}"
+  type="image/webp"
+/>
+<link rel="stylesheet" href="{% vstatic 'site/css/site.css' %}" />
+{% endblock %} {% block content %}
+<a class="skip" href="#about">Skip to content</a>
+
+<header class="nav" id="nav">
+  <a class="brand" href="#top" aria-label="{{ profile.full_name }}, back to top"
+    ><span class="brand-dot" aria-hidden="true"></span>{{ profile.name }}</a
+  >
+  <nav class="pill glass" id="menu" aria-label="Main">
+    <a href="#top">Home</a>
+    <a href="#about">About</a>
+    <a href="#work">Work</a>
+    <a href="#toolkit">Toolkit</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="nav-end">
+    <a class="btn btn-dark" href="#contact"
+      >Let's talk
+      <svg viewBox="0 0 16 16" aria-hidden="true">
+        <path
+          d="M4 12 12 4M5.5 4H12v6.5"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.6"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        /></svg
+    ></a>
+    <button
+      class="menu-btn glass"
+      id="menuBtn"
+      type="button"
+      aria-expanded="false"
+      aria-controls="menu"
+    >
+      Menu
+    </button>
+  </div>
+</header>
+
+<main id="main">
+  <!-- ============ HERO: portrait zooms in while you scroll ============ -->
+  <section class="hero" id="top" aria-label="Introduction" style="--zoom: 150">
+    <div class="hero-stick" id="heroStick">
+      <svg
+        class="arcs"
+        viewBox="0 0 1440 900"
+        preserveAspectRatio="xMidYMid slice"
+        aria-hidden="true"
+      >
+        <ellipse
+          cx="720"
+          cy="700"
+          rx="640"
+          ry="330"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+        />
+        <ellipse
+          cx="720"
+          cy="720"
+          rx="470"
+          ry="230"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1"
+        />
+      </svg>
+
+      <div class="hero-copy">
+        <h1 class="display">
+          <span class="line" style="--i: 0">{{ hero.headline.0 }}</span>
+          <span class="line it" style="--i: 1">{{ hero.headline.1 }}</span>
+        </h1>
+      </div>
+
+      <!-- blurred 3D tiles: depth-of-field softens with distance and with scroll -->
+      <div
+        class="tile t-figma"
+        style="
+          --x: 15%;
+          --y: 30%;
+          --s: clamp(84px, 12vw, 190px);
+          --b: 7;
+          --pb: 6;
+          --dx: -34vw;
+          --dy: -6vh;
+          --ds: 0.9;
+          --k: 26;
+          --z: 1;
+        "
+      >
+        <div class="tile-in">
+          <div class="tile-body tone-figma">
+            {% include "partials/glyph.html" with glyph="figma" %}
+          </div>
+        </div>
+      </div>
+      <div
+        class="tile t-ps"
+        style="
+          --x: 79%;
+          --y: 27%;
+          --s: clamp(54px, 7vw, 112px);
+          --b: 1.5;
+          --pb: 8;
+          --dx: 30vw;
+          --dy: -10vh;
+          --ds: 1.1;
+          --k: -18;
+          --z: 4;
+        "
+      >
+        <div class="tile-in">
+          <div class="tile-body tone-photoshop">
+            {% include "partials/glyph.html" with glyph="ps" %}
+          </div>
+        </div>
+      </div>
+      <div
+        class="tile t-dj"
+        style="
+          --x: 22%;
+          --y: 63%;
+          --s: clamp(60px, 8vw, 128px);
+          --b: 3;
+          --pb: 9;
+          --dx: -28vw;
+          --dy: 10vh;
+          --ds: 1.2;
+          --k: -30;
+          --z: 4;
+        "
+      >
+        <div class="tile-in">
+          <div class="tile-body tone-django">
+            {% include "partials/glyph.html" with glyph="dj" %}
+          </div>
+        </div>
+      </div>
+      <div
+        class="tile t-js"
+        style="
+          --x: 68%;
+          --y: 70%;
+          --s: clamp(70px, 9vw, 150px);
+          --b: 6;
+          --pb: 7;
+          --dx: 32vw;
+          --dy: 12vh;
+          --ds: 1;
+          --k: 34;
+          --z: 1;
+        "
+      >
+        <div class="tile-in">
+          <div class="tile-body tone-js">
+            {% include "partials/glyph.html" with glyph="js" %}
+          </div>
+        </div>
+      </div>
+      <div
+        class="tile t-orb"
+        style="
+          --x: 71%;
+          --y: 40%;
+          --s: clamp(34px, 4.4vw, 70px);
+          --b: 2.5;
+          --pb: 10;
+          --dx: 14vw;
+          --dy: -14vh;
+          --ds: 1.4;
+          --k: 22;
+          --z: 4;
+        "
+      >
+        <div class="tile-in"><div class="tile-body orb"></div></div>
+      </div>
+
+      <div class="portrait" id="portrait">
+        <img
+          src="{% vstatic 'site/img/pic.jpg' %}"
+          width="700"
+          height="800"
+          alt="Portrait of {{ profile.full_name }}"
+          fetchpriority="high"
+        />
+      </div>
+
+      <div class="hero-intro">
+        <p>{{ hero.intro }}</p>
+        <div class="actions">
+          <a class="btn btn-dark" href="#work">View my work</a>
+          <a class="btn btn-light" href="#contact">Get in touch</a>
+        </div>
+      </div>
+
+      <aside class="glass card card-l" style="--dx: -26vw; --k: 16">
+        <div class="card-in">
+          <strong>{{ hero.card_left.title }}</strong
+          ><span>{{ hero.card_left.text }}</span>
+        </div>
+      </aside>
+      <aside class="glass card card-r" style="--dx: 26vw; --k: -14">
+        <div class="card-in">
+          <strong>{{ hero.card_right.title }}</strong
+          ><span>{{ hero.card_right.text }}</span>
+        </div>
+      </aside>
+
+      <div class="badge" aria-hidden="true">
+        <svg viewBox="0 0 120 120">
+          <defs>
+            <path
+              id="circ"
+              d="M60 60m-42 0a42 42 0 1 1 84 0a42 42 0 1 1-84 0"
+            />
+          </defs>
+          <text>
+            <textPath
+              href="#circ"
+              startOffset="0"
+              textLength="258"
+              lengthAdjust="spacing"
+            >
+              {{ hero.badge }}{{ hero.badge }}
+            </textPath>
+          </text>
+        </svg>
+        <svg class="star" viewBox="0 0 24 24">
+          <path
+            d="M12 2c.6 5.6 4.4 9.4 10 10-5.6.6-9.4 4.4-10 10-.6-5.600-4.400-9.400-10-10 5.600-.600 9.400-4.400 10-10z"
+            fill="currentColor"
+          />
+        </svg>
+      </div>
+
+      <div class="scroll-cue" aria-hidden="true"><span></span>Scroll</div>
+    </div>
+  </section>
+
+  <!-- ============ Everything below slides over the zoomed portrait ============ -->
+  <div class="sheet">
+    <!-- ABOUT -->
+    <section class="section" id="about" aria-labelledby="about-h">
+      <div class="about-grid">
+        <figure class="figure-panel" data-reveal id="figurePanel">
+          <span class="fp-name" aria-hidden="true">{{ profile.name }}</span>
+          <div class="fp-tile" aria-hidden="true">
+            <div class="tile-in">
+              <div class="tile-body tone-figma">
+                {% include "partials/glyph.html" with glyph="figma" %}
+              </div>
+            </div>
+          </div>
+          <img
+            class="fp-body"
+            src="{% vstatic 'site/img/fullbody.jpg' %}"
+            width="418"
+            height="1403"
+            loading="lazy"
+            alt="{{ profile.full_name }} standing, full body"
+          />
+          <ul class="fp-chips">
+            {% for chip in about.chips %}
+            <li class="glass">{{ chip }}</li>
+            {% endfor %}
+          </ul>
+        </figure>
+
+        <div class="about-info" data-reveal style="--d: 120ms">
+          <h2 class="display h2" id="about-h">{{ about.heading }}</h2>
+          {% for para in about.paragraphs %}
+          <p class="lead">{{ para }}</p>
+          {% endfor %}
+          <dl class="facts">
+            {% for label, value in about.facts %}
+            <div>
+              <dt>{{ label }}</dt>
+              <dd>{{ value }}</dd>
+            </div>
+            {% endfor %}
+            <div>
+              <dt>Email</dt>
+              <dd>
+                <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+              </dd>
+            </div>
+            <div>
+              <dt>GitHub</dt>
+              <dd>
+                <a
+                  href="{{ profile.github_url }}"
+                  target="_blank"
+                  rel="noopener"
+                  >{{ profile.github_label }}</a
+                >
+              </dd>
+            </div>
+            {% if profile.resume_url %}
+            <div>
+              <dt>Resume</dt>
+              <dd><a href="{{ profile.resume_url }}">Download PDF</a></dd>
+            </div>
+            {% endif %}
+          </dl>
+        </div>
+      </div>
+
+      <!-- hobbies: three cut-outs layered on top of each other -->
+      <div class="hobbies" id="hobbies" data-reveal>
+        <div class="hobbies-copy">
+          <h3 class="display h3">{{ hobbies.heading }}</h3>
+          <p class="lead">{{ hobbies.text }}</p>
+          <div class="hobby-tabs" role="group" aria-label="Choose a hobby">
+            {% for h in hobbies.items %}<button
+              type="button"
+              class="hobby-tab"
+              data-hobby="{{ h.id }}"
+              aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+            >
+              {{ h.label }}</button
+            >{% endfor %}
+          </div>
+        </div>
+        <div
+          class="hobby-stage"
+          id="hobbyStage"
+          data-active="{{ hobbies.items.0.id }}"
+        >
+          <div class="hobby-glow" aria-hidden="true"></div>
+          {% for h in hobbies.items %}
+          <img
+            class="hobby hobby-{{ h.id }}"
+            data-id="{{ h.id }}"
+            src="{% vstatic h.image %}"
+            width="800"
+            height="1000"
+            loading="lazy"
+            alt="{{ h.label }}"
+          />
+          {% endfor %}
+          <span class="hobby-label glass" id="hobbyLabel" aria-live="polite"
+            >{{ hobbies.items.0.label }}</span
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK -->
+    <section class="section" id="work" aria-labelledby="work-h">
+      <div class="section-head" data-reveal>
+        <h2 class="display h2" id="work-h">Selected work</h2>
+        <p class="lead">Tap a project to see the details.</p>
+      </div>
+      <div class="work-grid">
+        {% for p in projects %}
+        <button
+          class="project-card"
+          type="button"
+          data-reveal
+          style="--d:{{ forloop.counter0 }}00ms"
+          data-name="{{ p.name }}"
+          data-role="{{ p.role }}"
+          data-text="{{ p.description }}"
+          data-image="{{ p.image }}"
+          data-tech="{{ p.tech|join:', ' }}"
+          data-live="{{ p.live_url }}"
+          data-repo="{{ p.repo_url }}"
+        >
+          <span class="pc-media"
+            >{% if p.image %}<img
+              src="{{ p.image }}"
+              alt=""
+              loading="lazy"
+              width="1280"
+              height="720"
+            />{% endif %}<span class="pc-view glass">View project</span></span
+          >
+          <span class="pc-name display">{{ p.name }}</span>
+          <span class="pc-meta">{{ p.role }}</span>
+        </button>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- TOOLKIT -->
+    <section class="section" id="toolkit" aria-labelledby="toolkit-h">
+      <div class="toolkit">
+        <div class="toolkit-copy" data-reveal>
+          <h2 class="display h2" id="toolkit-h">{{ toolkit.heading }}</h2>
+          {% for g in toolkit.groups %}
+          <div class="tk-group">
+            <h3>{{ g.name }}</h3>
+            <ul>
+              {% for i in g.items %}
+              <li>{{ i }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endfor %}
+        </div>
+        <div class="tile-cluster" data-reveal style="--d: 140ms">
+          {% for t in tools %}
+          <div class="ct" tabindex="0" style="--n:{{ forloop.counter0 }}">
+            <div class="tile-in">
+              <div class="tile-body tone-{{ t.id }}">
+                {% include "partials/glyph.html" with glyph=t.glyph %}
+              </div>
+            </div>
+            <span class="ct-label">{{ t.label }}</span>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section
+      class="section section-wide"
+      id="contact"
+      aria-labelledby="contact-h"
+    >
+      <div class="contact-panel" data-reveal>
+        <div class="contact-glow" aria-hidden="true"></div>
+        <div class="contact-copy">
+          <h2 class="display h2" id="contact-h">{{ contact.heading }}</h2>
+          <p class="lead">{{ contact.text }}</p>
+          <p class="contact-links">
+            <a href="mailto:{{ profile.email }}">{{ profile.email }}</a>
+            <a href="{{ profile.github_url }}" target="_blank" rel="noopener"
+              >{{ profile.github_label }}</a
+            >
+          </p>
+        </div>
+        <form
+          class="contact-form"
+          id="contactForm"
+          data-url="{{ contact_url }}"
+          novalidate
+        >
+          <label class="field"
+            ><span>Your name</span
+            ><input
+              type="text"
+              name="name"
+              maxlength="100"
+              autocomplete="name"
+              required
+          /></label>
+          <label class="field"
+            ><span>Your email</span
+            ><input
+              type="email"
+              name="email"
+              maxlength="254"
+              autocomplete="email"
+              required
+          /></label>
+          <label class="field"
+            ><span>Message</span
+            ><textarea
+              name="message"
+              rows="4"
+              maxlength="2000"
+              required
+            ></textarea>
+          </label>
+          <input
+            class="hp"
+            type="text"
+            name="website"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
+          <button class="btn btn-light" type="submit">Send message</button>
+          <p class="form-status" id="formStatus" role="status"></p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <span>&copy; {% now "Y" %} {{ profile.full_name }}</span>
+      <a href="#top">Back to top</a>
+    </footer>
+  </div>
+</main>
+
+<!-- project details -->
+<dialog class="project-dialog" id="projectDialog" aria-labelledby="pdName">
+  <button class="pd-close" id="pdClose" type="button" aria-label="Close">
+    &times;
+  </button>
+  <img id="pdImage" alt="" />
+  <div class="pd-body">
+    <h3 class="display" id="pdName"></h3>
+    <p class="pd-role" id="pdRole"></p>
+    <p id="pdText"></p>
+    <ul class="pd-tags" id="pdTags"></ul>
+    <p class="pd-links" id="pdLinks"></p>
+  </div>
+</dialog>
+
+<script src="{% vstatic 'site/js/site.js' %}" defer></script>
+{% endblock content %}

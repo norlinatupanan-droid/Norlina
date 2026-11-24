@@ -1,0 +1,61 @@
+{% load static %}<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>
+      {% block title %}{{ player.full_name }} | {{ player.title }}{% endblock %}
+    </title>
+    <meta
+      name="description"
+      content="{{ player.full_name }}: {{ player.title }}. Websites that are simple to use and beautiful to see."
+    />
+    <link
+      rel="canonical"
+      href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="{{ player.full_name }} | {{ player.title }}"
+    />
+    <meta
+      property="og:description"
+      content="Website and UI design portfolio: projects, tools and story."
+    />
+    <meta
+      property="og:url"
+      content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}"
+    />
+    <meta name="twitter:card" content="summary" />
+    <meta name="theme-color" content="#0e1320" />
+    <meta name="csrf-token" content="{{ csrf_token }}" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "{{ player.full_name|escapejs }}",
+        "jobTitle": "{{ player.title|escapejs }}",
+        "alumniOf": "Palawan State University",
+        "sameAs": ["https://github.com/renceCoding"]
+      }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <script>
+      document.documentElement.classList.add("js");
+    </script>
+    {% block extra_head %}{% endblock %}
+  </head>
+  <body>
+    {% block content %}{% endblock content %}
+  </body>
+</html>
